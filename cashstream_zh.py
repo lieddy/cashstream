@@ -1,7 +1,6 @@
 # Import necessary libraries
 import streamlit as st
 import requests
-from bs4 import BeautifulSoup
 
 # Function to calculate monthly mortgage payment
 def calculate_mortgage(principal, annual_interest_rate, years, repayment_method):
@@ -44,22 +43,7 @@ default_interest_rates = {
 }
 
 # Interest rate retrieval
-if st.button('获取利率'):
-    if loan_type == '公积金贷款':
-        url = 'https://www.example.com/public-housing-fund-interest-rate'  # Replace with actual URL
-    else:
-        url = 'https://www.example.com/commercial-loan-interest-rate'  # Replace with actual URL
-    try:
-        response = requests.get(url)
-        soup = BeautifulSoup(response.text, 'html.parser')
-        interest_rate = float(soup.find('div', {'class': 'interest-rate'}).text.strip('%'))  # Adjust based on actual HTML structure
-        st.write(f'获取到的利率: {interest_rate}%')
-    except Exception as e:
-        st.write(f'获取利率失败: {e}')
-        interest_rate = default_interest_rates[loan_type]
-        st.write(f'使用默认利率: {interest_rate}%')
-else:
-    interest_rate = st.number_input('年利率 (%)', min_value=0.0, max_value=10.0, value=default_interest_rates[loan_type])
+interest_rate = st.number_input('年利率 (%)', min_value=0.0, max_value=10.0, value=default_interest_rates[loan_type])
 
 # Down payment and loan term
 down_payment_percentage = st.number_input('首付比例 (%)', min_value=20.0, max_value=100.0, value=20.0) / 100
