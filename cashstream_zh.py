@@ -1,6 +1,5 @@
 # Import necessary libraries
 import streamlit as st
-import requests
 
 # Function to calculate monthly mortgage payment
 def calculate_mortgage(principal, annual_interest_rate, years, repayment_method):
