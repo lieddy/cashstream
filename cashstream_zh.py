@@ -31,10 +31,10 @@ def calculate_cap_rate(noi, property_value):
 st.title('房产投资计算器')
 
 # Input fields
-property_value = st.number_input('房产总价（元）', min_value=100000, step=10000)
-rental_income = st.number_input('每月租金收入（元）', min_value=1000, step=100)
+property_value = st.number_input('房产总价（万元）', min_value=10, step=1, value=40) * 10000
+rental_income = st.number_input('每月租金收入（元）', min_value=1000, step=100, value=1500)
 property_management_fee = st.number_input('每月物业管理费（元）', min_value=0, step=100)
-vacancy_rate = st.slider('空置率 (%)', min_value=0.0, max_value=10.0, value=5.0) / 100
+vacancy_rate = st.slider('空置率 (%)', min_value=0.0, max_value=10.0, value=7.0) / 100
 
 # Advanced settings (hidden by default)
 with st.expander("贷款设置"):
