@@ -34,7 +34,7 @@ st.title('房产投资计算器')
 property_value = st.number_input('房产总价（万元）', min_value=10, step=1, value=40) * 10000
 rental_income = st.number_input('每月租金收入（元）', min_value=1000, step=100, value=1500)
 # Add renovation cost input
-renovation_cost = st.number_input('装修费用（万元）', min_value=0, step=1, value=0)*10000
+renovation_cost = st.number_input('装修费用（万元）', min_value=0., step=0.5, value=0.)*10000
 vacancy_rate = st.slider('空置率 (%)', min_value=0.0, max_value=10.0, value=7.0) / 100
 
 with st.expander("其他费用"):
@@ -54,7 +54,7 @@ with st.expander("贷款设置"):
     interest_rate = st.number_input('年利率 (%)', min_value=0.0, max_value=10.0, value=default_interest_rates[loan_type])
 
     # Down payment and loan term
-    down_payment_percentage = st.number_input('首付比例 (%)', min_value=20.0, max_value=100.0, value=20.0) / 100
+    down_payment_percentage = st.number_input('首付比例 (%)', min_value=20, max_value=100, value=20) / 100
     loan_term_years = st.number_input('贷款年限 (年)', min_value=1, max_value=30, value=30)
 
 # Calculate mortgage payment
