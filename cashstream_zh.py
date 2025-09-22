@@ -54,7 +54,7 @@ with st.expander("贷款设置"):
     interest_rate = st.number_input('年利率 (%)', min_value=0.0, max_value=10.0, value=default_interest_rates[loan_type])
 
     # Down payment and loan term
-    down_payment_percentage = st.number_input('首付比例 (%)', min_value=5, max_value=100, value=20) / 100
+    down_payment_percentage = st.number_input('首付比例 (%)', min_value=5, max_value=100, value=15) / 100
     loan_term_years = st.number_input('贷款年限 (年)', min_value=1, max_value=30, value=30)
 
 # Calculate mortgage payment
